@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Build something fun!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import SwaggerUI from 'swagger-ui'
+import 'swagger-ui/dist/swagger-ui.css'
+import RonMode from './ron-mode'
+
+const ui = SwaggerUI({
+  plugins: RonMode,
+  url: "https://petstore.swagger.io/v2/swagger.json",
+})
+
+window.ui = ui
+
+const App = ui.getComponent('App', 'root')
+
+// function App() {
+
+//   return (
+//     <SwaggerUIRoot />
+//   )
+// }
 
 export default App;

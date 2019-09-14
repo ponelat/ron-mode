@@ -1,0 +1,90 @@
+@import "animate.css";
+
+.ron-mode {
+
+    .ron-mode-indicator {
+      &-wrapper {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 145, 27, 0.52);
+        animation-duration: 2s;
+        animation-delay: 4s;
+        animation-iteration-count: 1;
+
+        .block {
+          position: fixed;
+          z-index: 10;
+          top: 40%;
+          left: 30%;
+          width: 500px;
+          padding: 20px;
+          background: rgba(255, 145, 27, 0.52);
+
+          padding: 10px;
+          img {
+            width: 64px;
+            float: left;
+            padding-left: 5px;
+          }
+          h2 {
+            line-height: 64px;
+          }
+        }
+
+      }
+
+      .exit-ron-mode {
+        z-index: 1;
+        position: fixed;
+        top: 60px;
+        right: 15px;
+        img {
+          display: inline-block;
+          width: 32px;
+          position: relative;
+          top: -3px;
+        }
+        a {
+          color: orange;
+          font-weight: bold;
+          font-size: 32px;
+          &:hover {
+            text-decoration: none;
+          }
+
+        }
+      }
+
+    }
+  .swagger-ui {
+
+    $orange1: #ff9a2f;
+
+    .opblock.opblock-post .opblock-summary-method {background: $orange1;}
+    .opblock.opblock-post {border-color: $orange1;}
+    .opblock.opblock-post .opblock-summary  {border-color: $orange1;}
+    .opblock.opblock-post {background: lighten($orange1, 10%);}
+
+    $orange2: #E74812;
+    .opblock.opblock-put .opblock-summary-method {background: $orange2;}
+    .opblock.opblock-put {border-color: $orange2;}
+    .opblock.opblock-put .opblock-summary  {border-color: $orange2;}
+    .opblock.opblock-put {background: lighten($orange2, 10%);}
+
+    $orange3: #BE2116;
+    .opblock.opblock-delete .opblock-summary-method {background: $orange3;}
+    .opblock.opblock-delete {border-color: $orange3;}
+    .opblock.opblock-delete .opblock-summary  {border-color: $orange3;}
+    .opblock.opblock-delete {background: lighten($orange3, 10%);}
+
+    $orange4: #824b38;
+    .opblock.opblock-get .opblock-summary-method {background: $orange4;}
+    .opblock.opblock-get {border-color: $orange4;}
+    .opblock.opblock-get .opblock-summary  {border-color: $orange4;}
+    .opblock.opblock-get {background: lighten($orange4, 10%);}
+
+  }
+}
