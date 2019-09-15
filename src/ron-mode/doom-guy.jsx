@@ -60,7 +60,7 @@ export default class DoomGuy extends Component {
     this.stopIdle()
   }
 
-  componentDidReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     if(nextProps.mode != this.props.mode) {
       this.changeMode(nextProps)
     }
@@ -71,6 +71,8 @@ export default class DoomGuy extends Component {
       this.startIdle()
     } else if (props.mode == 'god') {
       this.setState({ frameX: 8, frameY: 0 })
+    } else if (props.mode == 'grin') {
+      this.setState({ frameX: 6, frameY: 0 })
     }
   }
 

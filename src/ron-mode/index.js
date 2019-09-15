@@ -5,45 +5,55 @@ import './fonts/AmazDooMRight.ttf'
 import DoomGuyComponent from './doom-guy'
 import SvgAssets from './svg-assets.jsx'
 
-const RonModeComponent = ({ronModeActions, ronModeSelectors, getComponent}) => {
-  const enabled = ronModeSelectors.getEnabled()
-  const DoomGuy = getComponent('DoomGuy')
+class RonModeComponent extends React.Component {
 
-  const exitRonMode = function(e) {
-    e.preventDefault()
-    ronModeActions.setEnabled(false)
+  state = {
+    mode: 'idle',
   }
 
-  if(!enabled)
-    return null
+  exitRonMode = () => {
+    this.setState({ mode: 'grin'})
+    setTimeout(() => {
+      this.props.ronModeActions.setEnabled(false)
+      setTimeout(() => this.setState({ mode: 'idle'}), 0)
+    }, 300)
+  }
 
-  return (
-    <div className="ron-mode-indicator">
-      <SvgAssets/>
-      <div className="ron-mode-indicator-wrapper fadeOutDownBig animated">
-        <div className="block">
-          <div className="block-floating">
-            <span className="ron-mode-enabled">
-              <span className="doom">RonMod</span>
-              <span className="doom-right">E</span>
-              {/* <DoomGuy mode="god" scale={0.8}/> */}
-              <hr/>
-              <b className="enabled">ENABLED</b>
-            </span>
+  render() {
+    const { ronModeSelectors, getComponent} = this.props
+    const enabled = ronModeSelectors.getEnabled()
+    const DoomGuy = getComponent('DoomGuy')
+
+    if(!enabled)
+      return null
+
+    return (
+      <div className="ron-mode-indicator">
+        <SvgAssets/>
+        <div className="ron-mode-indicator-wrapper fadeOutDownBig animated">
+          <div className="block">
+            <div className="block-floating">
+              <span className="ron-mode-enabled">
+                <span className="doom">RonMod</span>
+                <span className="doom-right">E</span>
+                {/* <DoomGuy mode="god" scale={0.8}/> */}
+                <hr/>
+                <b className="enabled">ENABLED</b>
+              </span>
+            </div>
           </div>
         </div>
+        <div onClick={this.exitRonMode} className='exit-ron-mode'>
+          <span  className="doom">Exi</span>
+          <span className="doom-right">T</span>
+          <DoomGuy mode={ this.state.mode }/>
+        </div>
       </div>
-      <div onClick={exitRonMode} className='exit-ron-mode'>
-        <span  className="doom">Exi</span>
-        <span className="doom-right">T</span>
-        <DoomGuy mode="idle"/>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default function RonMode() {
-  console.log('hello')
   return {
     initialState: {
       ronMode: {
@@ -113,7 +123,6 @@ export default function RonMode() {
             {/* { ronModeEnabled ? null : ( */}
             {/*   <button onClick={() => props.ronModeActions.setEnabled(true)}>Enable</button> */}
             {/* )} */}
-            {/* <DoomGuy /> */}
             <RonMode />
             <Ori {...props}/>
           </span>

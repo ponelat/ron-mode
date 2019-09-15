@@ -1,5 +1,6 @@
 {
   "name": "create-react-app",
+  "homepage": "https://ponelat.github.io/ron-mode",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
