@@ -5,6 +5,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "morgan": "^1.9.1",
+    "mousetrap": "^1.6.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",

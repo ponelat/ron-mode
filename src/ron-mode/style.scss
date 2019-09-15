@@ -1,15 +1,38 @@
 @import "animate.css";
 
+@font-face {
+  font-family: 'AmazDooMLeft';
+  src: local('AmazDooMLeft'), url(./fonts/AmazDooMLeft.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'AmazDooMRight';
+  src: local('AmazDooMRight'), url(./fonts/AmazDooMRight.ttf) format('truetype');
+}
+
+.doom {
+  font-family: AmazDooMLeft;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+}
+
+.doom-right {
+  font-family: AmazDooMRight;
+  font-size: 2em;
+  letter-spacing: 0.1em;
+}
+
 .ron-mode {
 
     .ron-mode-indicator {
+
       &-wrapper {
+        z-index: 1;
         position: fixed;
         top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(255, 145, 27, 0.52);
+        background: rgba(208, 208, 208, 0.8);
         animation-duration: 2s;
         animation-delay: 4s;
         animation-iteration-count: 1;
@@ -17,29 +40,72 @@
         .block {
           position: fixed;
           z-index: 10;
-          top: 40%;
-          left: 30%;
-          width: 500px;
-          padding: 20px;
-          background: rgba(255, 145, 27, 0.52);
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
 
-          padding: 10px;
-          img {
-            width: 64px;
-            float: left;
+          .block-floating {
+
+            position: relative;
+            top: 30%;
+            margin: auto;
+            text-align: center;
+            width: 400px;
+            padding: 30px;
+            background: #696158;
+            border-radius: 5px;
+            background: url(./doom-grey-texture.png);
+            box-shadow: 3px 2px 1px rgba(0,0,0,0.7);
+            padding: 10px;
+          }
+
+          .doom-guy {
+            margin: auto;
             padding-left: 5px;
           }
-          h2 {
-            line-height: 64px;
+          .enabled {
+            color: #222;
+            font-size: 0.8em;
+            text-shadow: none;
           }
+
+          .ron-mode-enabled {
+            position: relative;
+            width: 40%;
+            margin: auto;
+            font-size: 2.5em;
+            color: #eaa146;
+            text-shadow: 3px 2px 0px rgba(0,0,0,0.7);
+
+            background: url(./doom-grey-texture.png);
+
+            hr {
+              border-top: 2px rgba(0,0,0,0.4) solid;
+              border-bottom: 1px rgba(255,255,255,0.4) solid;
+            }
+
+          }
+
         }
 
       }
 
       .exit-ron-mode {
+        font-size: 2em;
+        cursor: pointer;
+        color: #e52e22;
+        text-shadow: 3px 2px 0px grey;
+        padding: 10px;
         z-index: 1;
         position: fixed;
-        top: 60px;
+        top: 15px;
+        background: url(./doom-grey-texture.png);
+        border-radius: 5px;
+        .doom-guy {
+          position: relative;
+          margin: auto;
+        }
         right: 15px;
         img {
           display: inline-block;
@@ -51,6 +117,7 @@
           color: orange;
           font-weight: bold;
           font-size: 32px;
+          text-decoration: none;
           &:hover {
             text-decoration: none;
           }
@@ -60,6 +127,8 @@
 
     }
   .swagger-ui {
+
+    color: #513b3b;
 
     $orange1: #ff9a2f;
 

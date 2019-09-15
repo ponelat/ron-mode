@@ -1,0 +1,12 @@
+.doom-guy {
+  position: relative;
+}
+.doom-guy-sprite {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: url(./doom-guy-sprite.png) no-repeat;
+  background-position: 0px 0px;
+}

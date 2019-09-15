@@ -1,11 +1,13 @@
 import React from 'react'
 import "./style.scss"
-import RonModePng from "./ron-mode.png"
+import './fonts/AmazDooMLeft.ttf'
+import './fonts/AmazDooMRight.ttf'
+import DoomGuyComponent from './doom-guy'
+import SvgAssets from './svg-assets.jsx'
 
 const RonModeComponent = ({ronModeActions, ronModeSelectors, getComponent}) => {
   const enabled = ronModeSelectors.getEnabled()
-  const Row = getComponent('Row')
-  const Col = getComponent('Col')
+  const DoomGuy = getComponent('DoomGuy')
 
   const exitRonMode = function(e) {
     e.preventDefault()
@@ -17,21 +19,24 @@ const RonModeComponent = ({ronModeActions, ronModeSelectors, getComponent}) => {
 
   return (
     <div className="ron-mode-indicator">
-      <div className="ron-mode-indicator-wrapper fadeOutLeftBig animated">
-        <Row className='block' >
-          <Col mobile={12}>
-            <h2>
-              Ron Mode <b>Enabled</b>
-              <img alt="Ron Mode" src={RonModePng}/>
-            </h2>
-          </Col>
-        </Row>
+      <SvgAssets/>
+      <div className="ron-mode-indicator-wrapper fadeOutDownBig animated">
+        <div className="block">
+          <div className="block-floating">
+            <span className="ron-mode-enabled">
+              <span className="doom">RonMod</span>
+              <span className="doom-right">E</span>
+              {/* <DoomGuy mode="god" scale={0.8}/> */}
+              <hr/>
+              <b className="enabled">ENABLED</b>
+            </span>
+          </div>
+        </div>
       </div>
-      <div className='exit-ron-mode'>
-        <a href="#" onClick={exitRonMode}>
-          Exit Ron Mode
-          <img alt="Ron Mode" src={RonModePng}/>
-        </a>
+      <div onClick={exitRonMode} className='exit-ron-mode'>
+        <span  className="doom">Exi</span>
+        <span className="doom-right">T</span>
+        <DoomGuy mode="idle"/>
       </div>
     </div>
   )
@@ -46,6 +51,23 @@ export default function RonMode() {
       }
     },
     statePlugins: {
+      spec: {
+        wrapActions: {
+          updateUrl: (ori, system) => (url) => {
+            if(url == 'ronmode') {
+              url = system.specSelectors.url()
+              system.ronModeActions.setEnabled()
+            }
+            ori(url)
+          },
+          download: (ori, system) => (url) => {
+            if(url == 'ronmode') {
+              return
+            }
+            ori(url)
+          }
+        }
+      },
       editor: {
         wrapActions: {
           onLoad: (ori, system) => (obj) => {
@@ -76,17 +98,22 @@ export default function RonMode() {
       }
     },
     components: {
-      RonMode: RonModeComponent
+      RonMode: RonModeComponent,
+      DoomGuy: DoomGuyComponent,
+      // SvgAssets,
     },
+
     wrapComponents: {
       BaseLayout: (Ori) => (props) => {
         const RonMode = props.getComponent("RonMode", true)
+        const DoomGuy = props.getComponent("DoomGuy")
         const ronModeEnabled = props.ronModeSelectors.getEnabled()
         return (
           <span className={ronModeEnabled ? 'ron-mode' : ''}>
-            { ronModeEnabled ? null : (
-              <button onClick={() => props.ronModeActions.setEnabled(true)}>Enable</button>
-            )}
+            {/* { ronModeEnabled ? null : ( */}
+            {/*   <button onClick={() => props.ronModeActions.setEnabled(true)}>Enable</button> */}
+            {/* )} */}
+            {/* <DoomGuy /> */}
             <RonMode />
             <Ori {...props}/>
           </span>
