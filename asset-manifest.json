@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.53a05c60.chunk.css",
+    "main.js": "/static/js/main.9eb6aa88.chunk.js",
+    "main.js.map": "/static/js/main.9eb6aa88.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.a8e4c19d.chunk.css": "/static/css/2.a8e4c19d.chunk.css",
+    "static/js/2.d33f14b7.chunk.js": "/static/js/2.d33f14b7.chunk.js",
+    "static/js/2.d33f14b7.chunk.js.map": "/static/js/2.d33f14b7.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ae02c8cf02ff6e67ee96ebbf7d020ae3.js": "/precache-manifest.ae02c8cf02ff6e67ee96ebbf7d020ae3.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.a8e4c19d.chunk.css.map": "/static/css/2.a8e4c19d.chunk.css.map",
+    "static/css/main.53a05c60.chunk.css.map": "/static/css/main.53a05c60.chunk.css.map",
+    "static/media/AmazDooMLeft.ttf": "/static/media/AmazDooMLeft.c89f593b.ttf",
+    "static/media/AmazDooMRight.ttf": "/static/media/AmazDooMRight.8b6d3979.ttf",
+    "static/media/doom-guy.scss": "/static/media/doom-guy-sprite.9d9effb5.png"
+  }
+}
