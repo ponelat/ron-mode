@@ -4,6 +4,7 @@ import './fonts/AmazDooMLeft.ttf'
 import './fonts/AmazDooMRight.ttf'
 import DoomGuyComponent from './doom-guy'
 import SvgAssets from './svg-assets.jsx'
+import TopBarComponent from "./topbar"
 
 class RonModeComponent extends React.Component {
 
@@ -35,7 +36,7 @@ class RonModeComponent extends React.Component {
             <div className="block-floating">
               <span className="ron-mode-enabled">
                 <span className="doom">RonMod</span>
-                <span className="doom-right">E</span>
+                <span className="doom doom-right">E</span>
                 {/* <DoomGuy mode="god" scale={0.8}/> */}
                 <hr/>
                 <b className="enabled">ENABLED</b>
@@ -45,7 +46,7 @@ class RonModeComponent extends React.Component {
         </div>
         <div onClick={this.exitRonMode} className='exit-ron-mode'>
           <span  className="doom">Exi</span>
-          <span className="doom-right">T</span>
+          <span className="doom doom-right">T</span>
           <DoomGuy mode={ this.state.mode }/>
         </div>
       </div>
@@ -110,10 +111,17 @@ export default function RonMode() {
     components: {
       RonMode: RonModeComponent,
       DoomGuy: DoomGuyComponent,
+      TopbarRonMode: TopBarComponent,
       // SvgAssets,
     },
 
     wrapComponents: {
+      Topbar: (Ori) => (props) => {
+        const TopbarRonMode = props.getComponent("TopbarRonMode", true)
+        if(props.ronModeSelectors.getEnabled())
+          return <TopbarRonMode {...props} />
+        return <Ori {...props}/>
+      },
       BaseLayout: (Ori) => (props) => {
         const RonMode = props.getComponent("RonMode", true)
         const DoomGuy = props.getComponent("DoomGuy")

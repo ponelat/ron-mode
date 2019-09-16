@@ -17,11 +17,53 @@
 
 .doom-right {
   font-family: AmazDooMRight;
-  font-size: 2em;
-  letter-spacing: 0.1em;
+}
+
+.swagger-ui a.topbar-ronmode-text span {
+  position: relative;
+  top: 10px;
+  color: #c10000;
+  padding: 0px;
+}
+
+.swagger-ui .topbar-ronmode .download-url-wrapper .download-url-button {
+  background: #c10000;
+}
+.swagger-ui .topbar-ronmode .download-url-wrapper input[type=text] {
+  border-color: #c10000;
+}
+.topbar-spacer {
+  min-width: 150px;
+}
+
+.swagger-ui .topbar-ronmode .download-url-wrapper {
+  margin-right: 34px;
+}
+
+
+.swagger-ui a.topbar-ronmode {
+  padding-right: 15px;
 }
 
 .ron-mode {
+
+  .swagger-ui {
+    .info .title {
+      color: #a66047;
+      small {
+        background: #f06a3c;
+      }
+    }
+    .btn.authorize {
+      color: blue;
+      border-color: blue;
+      svg {
+        fill: blue;
+      }
+    }
+  }
+
+
 
     .ron-mode-indicator {
 
@@ -99,7 +141,7 @@
         padding: 10px;
         z-index: 1;
         position: fixed;
-        top: 15px;
+        top: 22px;
         background: url(./doom-grey-texture.png);
         border-radius: 5px;
         .doom-guy {
