@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/ron-mode/precache-manifest.a393daacccd7ba0a238af109ab0a6988.js"
+  "/ron-mode/precache-manifest.c96b8a44e160436fa19cc521858483a8.js"
 );
 
 self.addEventListener('message', (event) => {
